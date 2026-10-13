@@ -1,0 +1,19 @@
+---
+# Publicação na HostGator via cPanel > Git Version Control.
+# Copia apenas os arquivos públicos para a RAIZ do domínio
+# (https://advmartinseandrade.com/). Tudo o que não estiver listado aqui fica
+# no repositório e NÃO vai para o ar: .git, .gitignore, .gitattributes e o
+# próprio .cpanel.yml.
+#
+# Atenção: o destino é public_html, a raiz do site. O cp -f substitui o
+# index.html que estiver lá hoje e o cp -Rf mescla a pasta assets, sobrescrevendo
+# arquivos de mesmo nome. Nada é apagado — subpastas existentes, como
+# public_html/cnh-suspensa (a landing page da CNH), continuam intactas e no ar.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/mkdir -p "$DEPLOYPATH/assets"
+    # página em construção
+    - /bin/cp -f index.html "$DEPLOYPATH/"
+    # logos da marca
+    - /bin/cp -Rf assets/. "$DEPLOYPATH/assets/"

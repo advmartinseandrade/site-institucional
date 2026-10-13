@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="O site da Martins &amp; Andrade Advocacia está em construção. Fale com a nossa equipe pelo WhatsApp: atendimento 100% online em todo o Brasil.">
+<meta name="author" content="Martins &amp; Andrade Advocacia">
+<meta name="theme-color" content="#0B1A2E">
+
+<link rel="canonical" href="https://advmartinseandrade.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Martins &amp; Andrade Advocacia">
+<meta property="og:title" content="Site em construção | Martins &amp; Andrade Advocacia">
+<meta property="og:description" content="Estamos preparando o nosso novo site. Enquanto isso, fale com a nossa equipe pelo WhatsApp.">
+<meta property="og:url" content="https://advmartinseandrade.com/">
+
+<link rel="icon" href="assets/logo-monograma.png" type="image/png">
+<title>Site em construção | Martins &amp; Andrade Advocacia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500;600&display=swap">
+
+<style>
+/* A tela herda o hero do site da CNH: navy nos dois temas, ouro como único
+   acento. Sendo uma página só, não há tokens de tema claro aqui. */
+:root{
+  --block:#060E19; --block-2:#101E31;
+  --cream:#FBF7EF; --gold:#D7B577; --gold-ink:#E3C68C;
+  --radius:999px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100svh; background:var(--block); color:var(--cream);
+  font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+h1{font-family:Raleway,"Segoe UI",Arial,sans-serif; font-weight:700; margin:0; text-wrap:balance; letter-spacing:-.028em}
+p{margin:0}
+:focus-visible{outline:2px solid #C08A2E; outline-offset:3px}
+
+/* véu: o mesmo radial do hero, para o centro ter contraste e as bordas respirarem */
+.veil{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(76% 56% at 50% 38%, rgba(215,181,119,.09) 0%, rgba(215,181,119,0) 70%),
+    radial-gradient(92% 66% at 50% 50%, var(--block-2) 0%, rgba(11,26,46,.6) 55%, var(--block) 100%);
+  box-shadow:inset 0 0 0 1px rgba(215,181,119,.14);
+}
+
+.wrap{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding:clamp(40px,8vh,88px) max(20px,env(safe-area-inset-left)) clamp(32px,6vh,64px);
+}
+.inner{width:100%; max-width:760px; margin-inline:auto}
+
+/* logo com o mesmo fallback do site: se o .webp não carregar, entra o monograma */
+.brand{display:inline-flex; align-items:center; gap:11px; text-decoration:none; margin-bottom:clamp(30px,5vh,48px)}
+.brand-full{width:auto; height:40px; max-width:min(300px,66vw); object-fit:contain}
+@media(max-width:560px){.brand-full{height:30px; max-width:58vw}}
+.brand-fallback{display:none; align-items:center; gap:11px}
+.brand.sem-logo .brand-fallback{display:inline-flex}
+.brand-fallback img{width:38px; height:auto}
+.brand-fallback b{
+  font-family:Raleway,"Segoe UI",Arial,sans-serif; font-size:15px; font-weight:700;
+  letter-spacing:.07em; display:block; line-height:1.15; color:var(--cream);
+}
+.brand-fallback .tagline{
+  font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:#A8B9CE; display:block;
+}
+
+.eyebrow{
+  font-size:11.5px; font-weight:600; letter-spacing:.17em; text-transform:uppercase;
+  color:var(--gold); margin:0 0 14px;
+}
+h1{font-size:clamp(29px,5.4vw,54px); line-height:1.06; color:var(--cream)}
+h1 .u{color:var(--gold-ink)}
+.sub{
+  margin:18px auto 0; max-width:52ch; font-size:clamp(15px,1.8vw,17.5px);
+  color:rgba(255,255,255,.78);
+}
+
+/* barra decorativa: o único movimento da tela, sugerindo obra em andamento
+   sem prometer prazo nenhum */
+.rule{
+  position:relative; width:min(240px,62vw); height:2px; margin:clamp(30px,5vh,44px) auto 0;
+  background:rgba(215,181,119,.16); border-radius:2px; overflow:hidden;
+}
+.rule::after{
+  content:""; position:absolute; inset-block:0; left:0; width:38%; border-radius:2px;
+  background:linear-gradient(90deg, rgba(215,181,119,0), #D7B577 50%, rgba(215,181,119,0));
+  animation:slide 2.8s cubic-bezier(.45,0,.55,1) infinite;
+}
+@keyframes slide{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(362%)}
+}
+
+.cta{margin-top:clamp(30px,5vh,44px); display:flex; justify-content:center}
+
+/* FlowButton do site: o círculo navy sobe a partir do centro e os glifos deslizam */
+.btn{
+  --arr:16px;
+  position:relative; overflow:hidden; isolation:isolate;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:inherit; font-size:14.5px; font-weight:600; letter-spacing:.01em;
+  padding:14px 36px; border-radius:var(--radius); text-decoration:none;
+  border:1.5px solid transparent; cursor:pointer;
+  transition:color .6s cubic-bezier(.23,1,.32,1), border-radius .6s cubic-bezier(.23,1,.32,1), transform .18s ease;
+}
+.btn:active{transform:scale(.95)}
+.btn:hover{border-radius:12px}
+.btn .t{position:relative; z-index:2; translate:-12px 0; white-space:nowrap; transition:translate .8s ease-out}
+.btn:hover .t{translate:12px 0}
+.btn .g{
+  position:absolute; width:16px; height:16px; z-index:2; flex:none;
+  transition:left .8s cubic-bezier(.34,1.56,.64,1), right .8s cubic-bezier(.34,1.56,.64,1), color .6s ease;
+}
+.btn .g.l{left:-25%}
+.btn:hover .g.l{left:var(--arr)}
+.btn .g.r{right:var(--arr)}
+.btn:hover .g.r{right:-25%}
+.btn .circle{
+  position:absolute; top:50%; left:50%; translate:-50% -50%; z-index:1;
+  width:16px; height:16px; border-radius:50%; opacity:0; pointer-events:none;
+  transition:width .8s cubic-bezier(.19,1,.22,1), height .8s cubic-bezier(.19,1,.22,1), opacity .8s cubic-bezier(.19,1,.22,1);
+}
+.btn:hover .circle{width:420px; height:420px; opacity:1}
+.btn-wa{
+  background:linear-gradient(170deg,#15A054,#0B8043 70%); color:#FFFFFF;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
+}
+.btn-wa .circle{background:#0B1A2E}
+.btn-wa:hover{color:#FFFFFF}
+
+.alt{margin-top:20px; font-size:13.5px; color:rgba(255,255,255,.6)}
+.alt a{
+  color:var(--gold-ink); text-decoration:none;
+  border-bottom:1px solid rgba(215,181,119,.4); padding-bottom:1px;
+}
+.alt a:hover{border-bottom-color:var(--gold-ink)}
+
+footer{
+  padding:clamp(22px,4vh,32px) max(20px,env(safe-area-inset-left)) calc(clamp(22px,4vh,32px) + env(safe-area-inset-bottom,0px));
+  border-top:1px solid rgba(215,181,119,.14);
+}
+.f-in{
+  max-width:1120px; margin-inline:auto;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 22px;
+  font-size:12.5px; color:rgba(255,255,255,.52); text-align:center;
+}
+.f-in a{text-decoration:none}
+.f-in a:hover{color:var(--gold-ink)}
+.f-in .loc{display:inline-flex; align-items:center; gap:6px}
+.f-in svg{width:14px; height:14px; flex:none; fill:currentColor}
+
+/* entrada: sobe uma vez ao abrir, escalonada */
+.r{opacity:0; transform:translateY(14px); animation:up .9s cubic-bezier(.19,1,.22,1) forwards}
+.r.d1{animation-delay:.08s} .r.d2{animation-delay:.16s} .r.d3{animation-delay:.24s}
+.r.d4{animation-delay:.34s} .r.d5{animation-delay:.44s}
+@keyframes up{to{opacity:1; transform:none}}
+
+@media(prefers-reduced-motion:reduce){
+  .btn,.btn .t,.btn .g,.btn .circle{transition:none}
+  .btn:active{transform:none}
+  .rule::after{animation:none; width:38%}
+  .r{opacity:1; transform:none; animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="veil" aria-hidden="true"></div>
+
+<main class="wrap">
+  <div class="inner">
+
+    <span class="brand r" aria-label="Martins &amp; Andrade Advocacia">
+      <img class="brand-full" src="assets/logo-horizontal.webp" width="900" height="124" decoding="async" alt="Martins &amp; Andrade Advocacia Especializada" onerror="this.closest('.brand').classList.add('sem-logo'); this.remove();">
+      <span class="brand-fallback">
+        <img src="assets/logo-monograma.png" width="390" height="269" decoding="async" alt="">
+        <span style="display:block">
+          <b>MARTINS &amp; ANDRADE</b>
+          <span class="tagline">Advocacia Especializada</span>
+        </span>
+      </span>
+    </span>
+
+    <p class="eyebrow r d1">Em construção</p>
+
+    <h1 class="r d2">Nosso novo site está <span class="u">sendo preparado</span></h1>
+
+    <p class="sub r d3">Estamos finalizando esta página. O atendimento continua normal: fale com a nossa equipe pelo WhatsApp e receba orientação sobre o seu caso.</p>
+
+    <div class="rule r d3" aria-hidden="true"></div>
+
+    <div class="cta r d4">
+      <a class="btn btn-wa" href="https://wa.me/5527998941907?text=Ol%C3%A1!%20Vi%20o%20site%20em%20constru%C3%A7%C3%A3o%20e%20gostaria%20de%20falar%20com%20um%20advogado(a)." target="_blank" rel="noopener">
+        <svg class="g l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span class="t">Falar no WhatsApp</span>
+        <span class="circle" aria-hidden="true"></span>
+        <svg class="g r" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.17c-.25.69-1.45 1.32-1.99 1.37-.53.05-1.03.24-3.47-.72-2.92-1.15-4.78-4.13-4.92-4.32-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.13.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.09 1.66.78 1.95.93.29.14.48.21.55.33.07.12.07.69-.18 1.38Z"/></svg>
+      </a>
+    </div>
+
+    <p class="alt r d5">Prefere ligar? <a href="tel:+5527998941907">(27) 99894-1907</a></p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="f-in">
+    <span>&copy; <span id="ano">2026</span> Martins &amp; Andrade Advocacia</span>
+    <a href="https://instagram.com/martinseandrade.adv" target="_blank" rel="noopener">@martinseandrade.adv</a>
+    <span class="loc">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+      Vila Velha - ES &middot; atendimento 100% online
+    </span>
+  </div>
+</footer>
+
+<script>document.getElementById("ano").textContent=new Date().getFullYear();</script>
+</body>
+</html>
